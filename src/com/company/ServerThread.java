@@ -5,7 +5,7 @@ import java.net.Socket;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class ServerThread extends Thread{
+public class ServerThread extends Thread {
 
     Connection connection;
     PreparedStatement preparedStatement;
