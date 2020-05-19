@@ -169,17 +169,24 @@ public class signUpGUI extends Container {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
+                    if(nameText.getText()==""||surnameText.getText()==""||(String) genderBox.getSelectedItem()==""||numberText.getText()==""||passText.getText()==""||helpWordText.getText()==""){
+                        JOptionPane.showMessageDialog(null, "Fill all rows");
+                        Client.frame.signUpGUI.setVisible(false);
+                        Client.frame.signUpGUI.setVisible(true);
+                    }else{
                         String date = "";
                         date += year.getSelectedItem() + "-";
                         date += month.getSelectedItem() + "-";
                         date += days.getSelectedItem();
                         String s = "Your favourite food name";
                         User user = new User(null, nameText.getText(), surnameText.getText(), (String) genderBox.getSelectedItem(), date, numberText.getText(), passText.getText(), s, helpWordText.getText(),adminTF);
-                    PackageData pd = new PackageData("sign_up", user);
+                        PackageData pd = new PackageData("sign_up", user);
                         Client.connect(pd);
-                    JOptionPane.showMessageDialog(null, "New account created");
-                    Client.frame.signUpGUI.setVisible(false);
-                    Client.frame.signUpGUI.setVisible(true);
+                        JOptionPane.showMessageDialog(null, "New account created");
+                        Client.frame.signUpGUI.setVisible(false);
+                        Client.frame.signUpGUI.setVisible(true);
+                    }
+
                 } catch (Exception exception) {
                     exception.printStackTrace();
                 }
