@@ -169,10 +169,11 @@ public class signUpGUI extends Container {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    if(nameText.getText()==""||surnameText.getText()==""||(String) genderBox.getSelectedItem()==""||numberText.getText()==""||passText.getText()==""||helpWordText.getText()==""){
+                    if(nameText.getText().equals("")||surnameText.getText().equalsIgnoreCase("")||numberText.getText().equalsIgnoreCase("")||passText.getText().equalsIgnoreCase("")||helpWordText.getText().equalsIgnoreCase("")){
                         JOptionPane.showMessageDialog(null, "Fill all rows");
                         Client.frame.signUpGUI.setVisible(false);
                         Client.frame.signUpGUI.setVisible(true);
+
                     }else{
                         String date = "";
                         date += year.getSelectedItem() + "-";
